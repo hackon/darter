@@ -288,7 +288,7 @@ While you can still use `require()` and `module.exports`, we encourage you to us
 
 For example:
 
-### `Button.js`
+### `MyButton.js`
 
 ```js
 import React, { Component } from 'react';
@@ -307,7 +307,7 @@ export default Button; // Don’t forget to use export default!
 
 ```js
 import React, { Component } from 'react';
-import Button from './Button'; // Import a component from another file
+import Button from MyButton; // Import a component from another file
 
 class DangerButton extends Component {
   render() {
@@ -389,11 +389,11 @@ This project setup uses [Webpack](https://webpack.js.org/) for handling all asse
 }
 ```
 
-### `Button.js`
+### `MyButton.js`
 
 ```js
 import React, { Component } from 'react';
-import './Button.css'; // Tell Webpack that Button.js uses these styles
+import MyButton; MyButton
 
 class Button extends Component {
   render() {

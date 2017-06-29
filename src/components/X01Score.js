@@ -10,7 +10,7 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
-const Score = ({players, score, currentPlayer}) => (
+const X01Score = ({players, score, currentPlayer}) => (
   <Table selectable={false} fixedHeader={true} height={'150px'} multiSelectable={false}>
     <TableHeader adjustForCheckbox={false} displaySelectAll={false} enableSelectAll={false}>
       <TableRow>
@@ -31,10 +31,10 @@ const Score = ({players, score, currentPlayer}) => (
   </Table>
 );
 
-Score.propTypes = {
+X01Score.propTypes = {
   players: PropTypes.array.isRequired,
   score: PropTypes.array.isRequired,
   currentPlayer: PropTypes.string.isRequired,
 };
 
-export default Score;
+export default X01Score;

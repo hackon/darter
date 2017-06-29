@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
-import X01Numpad from './X01Numpad';
+import CricketNumpad from './CricketNumpad';
 import Darts from '../components/Darts';
 import X01Score from '../components/X01Score';
 import PlayerInput from '../components/PlayerInput';
-import {calcValue} from '../utils/X01DartsUtils';
+import {calcValue} from '../utils/CricketDartsUtils';
+import CricketScore from "../components/CricketScore";
 
 function initialState() {
   return {
@@ -19,7 +20,7 @@ function initialState() {
   };
 }
 
-class X01 extends Component {
+class CricketGame extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -36,8 +37,8 @@ class X01 extends Component {
     const currentIndex = players.indexOf(currentPlayer);
     const preScore = [...score.slice(0, currentIndex)];
     const postScore = [...score.slice(currentIndex + 1)];
-    const dartValue = calcValue(dart);
     const currentScore = score[currentIndex];
+    const dartValue = calcValue(dart);
     const newPlayerScore = currentScore - dartValue;
     if (newPlayerScore === 0 && dart.charAt(0)==='D') {
       alert("Winner!!!!");
@@ -126,7 +127,7 @@ class X01 extends Component {
     const {players, score, currentPlayer, addPlayer, darts, addPlayerEnabled} = this.state;
     return (
       <div className="App">
-        <X01Score players={players} score={score} currentPlayer={currentPlayer}/>
+        <CricketScore players={players} score={score} currentPlayer={currentPlayer}/>
         {addPlayerEnabled && <PlayerInput
           hint={'Add player'}
           value={addPlayer}
@@ -137,10 +138,10 @@ class X01 extends Component {
           enableDone={this.state.players.length > 1}
         />}
         <Darts darts={darts}/>
-        {!addPlayerEnabled && <X01Numpad submit={this.numpadSubmit}/>}
+        {!addPlayerEnabled && <CricketNumpad submit={this.numpadSubmit}/>}
       </div>
     );
   }
 }
 
-export default X01;
+export default CricketGame;

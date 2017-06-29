@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {validInput} from '../utils/X01DartsUtils';
+import {validInput} from '../utils/CricketDartsUtils';
 import ButtonGroup from 'react-bootstrap/es/ButtonGroup';
 import MyButton from '../components/MyButton';
 
-class X01Numpad extends Component {
+class CricketNumpad extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -33,30 +33,25 @@ class X01Numpad extends Component {
           <MyButton name="<" click={this.click} disabled={validInput(this.state.value)}/>
         </div>
         <div>
-          <MyButton name="1" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="2" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="3" click={this.click} disabled={validInput(this.state.value)}/>
+          <MyButton name="15" click={this.click} disabled={validInput(this.state.value)}/>
+          <MyButton name="16" click={this.click} disabled={validInput(this.state.value)}/>
+          <MyButton name="17" click={this.click} disabled={validInput(this.state.value)}/>
         </div>
         <div>
-          <MyButton name="4" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="5" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="6" click={this.click} disabled={validInput(this.state.value)}/>
+          <MyButton name="18" click={this.click} disabled={validInput(this.state.value)}/>
+          <MyButton name="19" click={this.click} disabled={validInput(this.state.value)}/>
+          <MyButton name="20" click={this.click} disabled={validInput(this.state.value)}/>
         </div>
         <div>
-          <MyButton name="7" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="8" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="9" click={this.click} disabled={validInput(this.state.value)}/>
-        </div>
-        <div>
-          <MyButton name="0" click={this.click} disabled={validInput(this.state.value)}/>
+          <MyButton name="B" click={this.click} disabled={validInput(this.state.value)}/>
           <MyButton name="Submit" click={this.submit} disabled={(input) => true}/>
         </div>
       </ButtonGroup>
     );
   }
 }
-X01Numpad.propTypes = {
+CricketNumpad.propTypes = {
   submit: PropTypes.func.isRequired
 };
 
-export default X01Numpad;
+export default CricketNumpad;

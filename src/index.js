@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import X01 from './containers/X01';
+import CricketGame from './containers/CricketGame';
 import registerServiceWorker from './registerServiceWorker';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,7 +15,8 @@ injectTapEventPlugin();
 const app =
   <MuiThemeProvider>
     <App>
-      <X01 />
+      {/*<X01 />*/}
+      <CricketGame/>
     </App>
   </MuiThemeProvider>;
 

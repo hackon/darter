@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App';
+import App from './components/App';
+import X01 from './containers/X01';
 import registerServiceWorker from './registerServiceWorker';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -12,7 +13,9 @@ injectTapEventPlugin();
 
 const app =
   <MuiThemeProvider>
-    <App />
+    <App>
+      <X01 />
+    </App>
   </MuiThemeProvider>;
 
 

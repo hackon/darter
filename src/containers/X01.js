@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Numpad from './Numpad';
+import X01Numpad from './X01Numpad';
 import Darts from '../components/Darts';
 import Score from '../components/Score';
 import PlayerInput from '../components/PlayerInput';
@@ -19,7 +19,7 @@ function initialState() {
   };
 }
 
-class App extends Component {
+class X01 extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -137,10 +137,10 @@ class App extends Component {
           enableDone={this.state.players.length > 1}
         />}
         <Darts darts={darts}/>
-        {!addPlayerEnabled && <Numpad submit={this.numpadSubmit}/>}
+        {!addPlayerEnabled && <X01Numpad submit={this.numpadSubmit}/>}
       </div>
     );
   }
 }
 
-export default App;
+export default X01;

@@ -39,16 +39,17 @@ class App extends Component {
     const dartValue = calcValue(dart);
     const currentScore = score[currentIndex];
     const newPlayerScore = currentScore - dartValue;
-    const newDarts = darts.length === 3 ? [dart] : [...darts, dart];
-    if (newPlayerScore === 0) {
+    if (newPlayerScore === 0 && dart.charAt(0)==='D') {
       alert("Winner!!!!");
       this.setState(initialState());
       return;
     }
-    const bust = newPlayerScore < 0;
+    const bust = newPlayerScore <= 1;
     if (bust) alert("Busted");
     const newScore = bust
-      ? score
+      ? [...preScore,
+        currentScore + darts.map(d => calcValue(d)).reduce((a,b) => a + b, 0),
+        ...postScore]
       : [
         ...preScore,
         newPlayerScore,
@@ -67,6 +68,8 @@ class App extends Component {
       ), 500)
       : undefined;
 
+
+    const newDarts = darts.length === 3 ? [dart] : [...darts, dart];
 
     this.setState(
       Object.assign(

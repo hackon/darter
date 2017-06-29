@@ -27,7 +27,7 @@ export const validInputs = dart => {
 export const calcValue = (dart) => {
   if (!validDarts.includes(dart)) return -1;
   const type = dart.charAt(0);
-  const value = isNaN(type) ? +dart.substr(1): +dart;
+  const value = isNaN(Number(type)) ? +dart.substr(1): +dart;
 
   if (type === 'M') return 0;
   const multiplier = type === 'T' ? 3 : type === 'D' ? 2 : 1;

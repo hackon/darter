@@ -4,59 +4,41 @@ import {validInput} from '../utils/Darts';
 import ButtonGroup from 'react-bootstrap/es/ButtonGroup';
 import MyButton from '../components/MyButton';
 
-class X01Numpad extends Component {
-  constructor(props, context) {
-    super(props, context);
+const X01Numpad = ({value, click, submit, revert}) => (
+  <ButtonGroup>
+    <div>
+      <MyButton name="D" click={click} disabled={validInput(value)}/>
+      <MyButton name="T" click={click} disabled={validInput(value)}/>
+      <MyButton name="<" click={revert} disabled={(i) => value.length > 0}/>
+    </div>
+    <div>
+      <MyButton name="1" click={click} disabled={validInput(value)}/>
+      <MyButton name="2" click={click} disabled={validInput(value)}/>
+      <MyButton name="3" click={click} disabled={validInput(value)}/>
+    </div>
+    <div>
+      <MyButton name="4" click={click} disabled={validInput(value)}/>
+      <MyButton name="5" click={click} disabled={validInput(value)}/>
+      <MyButton name="6" click={click} disabled={validInput(value)}/>
+    </div>
+    <div>
+      <MyButton name="7" click={click} disabled={validInput(value)}/>
+      <MyButton name="8" click={click} disabled={validInput(value)}/>
+      <MyButton name="9" click={click} disabled={validInput(value)}/>
+    </div>
+    <div>
+      <MyButton name="0" click={click} disabled={validInput(value)}/>
+      <MyButton name="Submit" click={submit} disabled={(input) => true}/>
+    </div>
+  </ButtonGroup>
+);
 
-    this.state = {
-      value: ''
-    };
-    this.click = this.click.bind(this);
-    this.submit = this.submit.bind(this);
-  }
-
-  click(newValue) {
-    this.setState({value: this.state.value + newValue})
-  }
-
-  submit() {
-    this.props.submit(this.state.value);
-    this.setState({value: ''});
-  }
-
-  render() {
-    return (
-      <ButtonGroup>
-        <div>
-          <MyButton name="D" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="T" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="<" click={this.click} disabled={validInput(this.state.value)}/>
-        </div>
-        <div>
-          <MyButton name="1" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="2" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="3" click={this.click} disabled={validInput(this.state.value)}/>
-        </div>
-        <div>
-          <MyButton name="4" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="5" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="6" click={this.click} disabled={validInput(this.state.value)}/>
-        </div>
-        <div>
-          <MyButton name="7" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="8" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="9" click={this.click} disabled={validInput(this.state.value)}/>
-        </div>
-        <div>
-          <MyButton name="0" click={this.click} disabled={validInput(this.state.value)}/>
-          <MyButton name="Submit" click={this.submit} disabled={(input) => true}/>
-        </div>
-      </ButtonGroup>
-    );
-  }
-}
 X01Numpad.propTypes = {
-  submit: PropTypes.func.isRequired
+  value: PropTypes.string.isRequired,
+  click: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
+  revert: PropTypes.func.isRequired,
+  // validInput: PropTypes.func.isRequired
 };
 
 export default X01Numpad;

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import ButtonGroup from 'react-bootstrap/es/ButtonGroup';
 import MyButton from '../components/MyButton';
 
-const X01Numpad = ({click,submit, validInput, value}) => (
+const X01Numpad = ({click,submit, validInput, value, revert}) => (
   <ButtonGroup>
     <div>
       <MyButton name="D" click={click} disabled={validInput(value)}/>
       <MyButton name="T" click={click} disabled={validInput(value)}/>
-      <MyButton name="<" click={click} disabled={validInput(value)}/>
+      <MyButton name="<" click={click} disabled={revert}/>
     </div>
     <div>
       <MyButton name="1" click={click} disabled={validInput(value)}/>
@@ -36,6 +36,7 @@ X01Numpad.propTypes = {
   value: PropTypes.string.isRequired,
   click: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
+  revert: PropTypes.func.isRequired,
   validInput: PropTypes.func.isRequired
 };
 
